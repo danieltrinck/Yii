@@ -35,16 +35,26 @@ e. Lista dos produtos
 i.Retornar paginado
 ii.Permitir filtrar pelo cliente
 
+# Docker
+1. Rodar o docker-compose build na raiz do projeto para instalar as dependências
+2. Após compilar rodar docker-compose up -d
+3. Instalar os pacotes do projeto com o comando:
+3.1 Se estiver fora do bash Docker: docker exec -i php_yii composer install
+3.2 Dentro do docker no terminal: composer install
+4 Após instalação executar no navegador http://localhost
+4.1 Se der falha de permissão executar o comando sudo chmod -R 777 /Yii
+
 # Migrate
 Rodar o comando após a instalação: php yii migrate
 Irá criar as tabelas: clients, products e users
-Para executar no Docker executar: docker exec -it docker_image_yii php yii seed
+Para executar no Docker executar: docker exec -it php_yii php yii seed
 
 # Seed
 Rodar o comando após a instalação: php yii seed (comando automático)
 Irá popular as tabelas com dados automaticamente: clients, products e users
 Para criar um usuário através do terminal digite: php yii seed username password nome
-Para executar no Docker executar: docker exec -it docker_image_yii php yii seed daniel 123 daniel
+Para executar no Docker executar: docker exec -it php_yii php yii seed daniel 123 daniel
 
 # Collection e Environment do Postman para realizar os testes
 Na raiz do projeto: Yii-Postman-Collection.json, Yii2.Postman_Environment.json
+Importar os dois arquivos no Postman para realizar os testes.

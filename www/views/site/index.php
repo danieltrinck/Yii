@@ -12,7 +12,7 @@ $this->title = 'Teste de desenvolvimento em Yii2 Framework';
 
 
         <div class="row">
-            <div class="col-6" style="margin: 0 auto;">
+            <div class="col-7" style="margin: 0 auto;">
                 <h2>Para esse teste teremos os seguintes requisitos obrigatórios:</h2>
                 1. PHP 7.1<br>
                 2. Composer na versão 1.10<br>
@@ -58,6 +58,15 @@ $this->title = 'Teste de desenvolvimento em Yii2 Framework';
                     i.Retornar paginado<br>
                     ii.Permitir filtrar pelo cliente<br>
                 </div>
+                <br>
+                <h2>Docker</h2>
+                1. Rodar o docker-compose build na raiz do projeto para instalar as dependências<br>
+                2. Após compilar rodar docker-compose up -d<br>
+                3. Instalar os pacotes do projeto com o comando:<br>
+                3.1 Se estiver fora do bash Docker: docker exec -i apache_yii composer install<br>
+                3.2 Dentro do docker no terminal: composer install<br>
+                4 Após instalação executar no navegador http://localhost<br>
+                4.1 Se der falha de permissão executar o comando sudo chmod -R 777 /Yii<br>
                 <br>
                 <h2>Migrate</h2>
                 Rodar o comando após a instalação: php yii migrate<br>
