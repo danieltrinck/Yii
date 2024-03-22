@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  apache:
+    container_name: apache_yii
+    build: ./apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./logs/apache:/var/log/apache2
+      - ./www:/usr/local/apache2/htdocs/www
+  php:
+    container_name: php_yii
+    build: ./php
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./www:/usr/local/apache2/htdocs/www
+    working_dir: /usr/local/apache2/htdocs/www
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: yii
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root 
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
+    driver: local
